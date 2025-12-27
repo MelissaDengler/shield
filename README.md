@@ -87,13 +87,42 @@ npm run dev
 
 ## 📱 Building for Production
 
-### Web Deployment
+### Web Deployment on Vercel
 
+The app is configured for deployment on Vercel. To deploy:
+
+1. **Install Vercel CLI** (optional, for local testing):
+```bash
+npm i -g vercel
+```
+
+2. **Deploy to Vercel**:
+   - Option A: Connect your GitHub repository to Vercel
+     - Go to [vercel.com](https://vercel.com)
+     - Click "New Project"
+     - Import your GitHub repository
+     - Vercel will auto-detect the settings from `vercel.json`
+     - Click "Deploy"
+   
+   - Option B: Deploy via CLI
+     ```bash
+     vercel
+     ```
+
+3. **Build Configuration**:
+   - Build Command: `npm run build:web`
+   - Output Directory: `dist`
+   - Framework Preset: Other (auto-detected from vercel.json)
+
+4. **Local Build Test**:
 ```bash
 npm run build:web
 ```
 
-The output will be in the `dist` folder and can be deployed to any static hosting service.
+The output will be in the `dist` folder. The `vercel.json` file includes:
+- Proper SPA routing rewrites
+- Security headers
+- Static asset caching
 
 ### Android APK
 
